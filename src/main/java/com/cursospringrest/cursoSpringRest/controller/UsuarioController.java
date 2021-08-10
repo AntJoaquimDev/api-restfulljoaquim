@@ -43,7 +43,7 @@ public class UsuarioController {
 
 	}
 
-	@GetMapping(value = "listaTodos")
+	@GetMapping(value = "/listaTodos")
 	@ResponseBody /* retornar dados para corpo da resposta Json */
 	public ResponseEntity<List<Usuario>> listaUsuario() {
 		List<Usuario> usuarios = (List<Usuario>) usuarioRepository.findAll();
@@ -52,7 +52,7 @@ public class UsuarioController {
 	}
 	
 	//MTD, Salvar
-	@PostMapping(value = "salvar")
+	@PostMapping(value = "/salvar")
 	@ResponseBody
 	public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario){
 		
@@ -62,7 +62,7 @@ public class UsuarioController {
 	}
 	
 	//MTD, Deletar
-		@DeleteMapping(value = "delete") // passando id para deletar
+		@DeleteMapping(value = "/delete") // passando id para deletar
 		@ResponseBody
 		public ResponseEntity<String> delete(@RequestParam long id ){
 			
@@ -73,7 +73,7 @@ public class UsuarioController {
 		}
 		
 		// passando id para Buscar Usuario
-		@GetMapping(value = "buscarPorId") // passando id para Buscar Usuario
+		@GetMapping(value = "/buscarPorId") // passando id para Buscar Usuario
 		@ResponseBody
 		public ResponseEntity<Usuario> buscarPorId(@RequestParam (name = "id") Long id ){
 			
@@ -85,7 +85,7 @@ public class UsuarioController {
 		
 			
 		//atualizar User (update)
-		@PutMapping(value = "atualizar")
+		@PutMapping(value = "/atualizar")
 		@ResponseBody
 		public ResponseEntity<?> atualizar(@RequestBody Usuario usuario){
 			if (usuario.getId()== null) {
@@ -97,7 +97,7 @@ public class UsuarioController {
 		}
 
 		//MTD Biscar por Nome
-		@GetMapping(value = "buscarPorNome") // passando id para Buscar Usuario
+		@GetMapping(value = "/buscarPorNome") // passando id para Buscar Usuario
 		@ResponseBody
 		public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam (name = "name") String name ){
 			
